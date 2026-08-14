@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Central Online</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#0f2d2a;
+--gold:#d4af37;
+--white:#ffffff;
+--text:#1f2937;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:'Montserrat',sans-serif;
+background:linear-gradient(180deg,#0f2d2a,#163c38);
+min-height:100vh;
+color:white;
+padding:16px;
+}
+.container{max-width:480px;margin:auto}
+.header{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(12px);
+border:1px solid rgba(212,175,55,.2);
+border-radius:20px;
+padding:18px;
+text-align:center;
+margin-bottom:20px;
+}
+.hero{
+background:white;
+color:var(--text);
+border-radius:28px;
+padding:28px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
+.hero h1{font-size:34px;line-height:1.1;margin-bottom:15px}
+.hero h1 span{color:var(--gold)}
+.hero p{line-height:1.7;margin-bottom:24px}
+.btn{
+display:block;
+width:100%;
+text-decoration:none;
+background:linear-gradient(135deg,#d4af37,#f5d76e);
+color:#111;
+font-weight:800;
+padding:18px;
+border-radius:16px;
+}
+.grid{display:grid;gap:14px;margin-top:18px}
+.card{
+background:white;
+color:var(--text);
+border-radius:20px;
+padding:18px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<h2>Central Online</h2>
+<p>Sistema disponível</p>
+</div>
+
+<div class="hero">
+<h1>Consulte suas <span>informações</span></h1>
+<p>Acesse o portal online e acompanhe as informações disponíveis através da plataforma digital de atendimento.</p>
+<a href="https://luxury-salamander-694d2d.netlify.app/" class="btn">Continuar</a>
+</div>
+
+<div class="grid">
+<div class="card"><strong>Sistema online</strong></div>
+<div class="card"><strong>Ambiente seguro</strong></div>
+<div class="card"><strong>Consulta individual</strong></div>
+<div class="card"><strong>Atendimento digital ativo</strong></div>
+</div>
+</div>
+</body>
+</html>
