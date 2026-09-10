@@ -1,348 +1,223 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Soluções para você</title>
-  <style>
-    :root {
-      --navy: #12325d;
-      --navy-dark: #0d2b52;
-      --green: #0bb77f;
-      --text: #24364f;
-      --muted: #536176;
-      --line: #e7ebef;
-      --page: #f8fafc;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#12372a">
+<meta name="description" content="Central digital de soluções, informações e oportunidades.">
+<title>Espaço de Descobertas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html, body {
-      margin: 0;
-      min-height: 100%;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--page);
-      color: var(--text);
-    }
-
-    body {
-      display: flex;
-      justify-content: center;
-      padding: 14px 30px;
-    }
-
-    .page {
-      width: min(100%, 960px);
-      min-height: calc(100vh - 28px);
-      background: #fff;
-      border-radius: 38px;
-      box-shadow: 0 12px 35px rgba(25, 47, 77, 0.07);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 164px 52px 74px;
-      text-align: center;
-    }
-
-    .lock-wrap {
-      width: 204px;
-      height: 204px;
-      position: relative;
-      display: grid;
-      place-items: center;
-      margin-bottom: 45px;
-    }
-
-    .lock-wrap svg {
-      width: 204px;
-      height: 204px;
-      overflow: visible;
-    }
-
-    .headline {
-      margin: 0;
-      font-size: clamp(48px, 6vw, 78px);
-      line-height: 1.12;
-      letter-spacing: -2.8px;
-      font-weight: 700;
-      color: var(--navy);
-    }
-
-    .headline .green {
-      display: block;
-      color: var(--green);
-      margin-top: 3px;
-    }
-
-    .subtitle {
-      max-width: 650px;
-      margin: 43px auto 0;
-      font-size: clamp(22px, 2.6vw, 31px);
-      line-height: 1.48;
-      letter-spacing: -0.35px;
-      color: var(--muted);
-      font-weight: 400;
-    }
-
-    .small-divider {
-      width: 106px;
-      height: 3px;
-      background: #e9edf0;
-      border-radius: 10px;
-      margin: 68px 0 72px;
-    }
-
-    .instruction {
-      margin: 0;
-      max-width: 650px;
-      font-size: clamp(23px, 2.7vw, 31px);
-      line-height: 1.45;
-      color: #303b4a;
-      letter-spacing: -0.45px;
-    }
-
-    .access-button {
-      margin-top: 57px;
-      width: min(100%, 552px);
-      min-height: 116px;
-      border: 0;
-      border-radius: 60px;
-      background: linear-gradient(105deg, #123b70, #193d70);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 38px;
-      font-size: clamp(24px, 3vw, 35px);
-      font-weight: 700;
-      letter-spacing: -0.7px;
-      cursor: pointer;
-      box-shadow: 0 16px 27px rgba(18, 52, 94, 0.14);
-      transition: transform .18s ease, box-shadow .18s ease;
-    }
-
-    .access-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 20px 34px rgba(18, 52, 94, 0.2);
-    }
-
-    .access-button:active {
-      transform: translateY(0);
-    }
-
-    .access-button:focus-visible {
-      outline: 4px solid rgba(11, 183, 127, .35);
-      outline-offset: 5px;
-    }
-
-    .shield {
-      width: 49px;
-      height: 57px;
-      flex: 0 0 auto;
-    }
-
-    .footer {
-      width: min(100%, 750px);
-      border-top: 2px solid var(--line);
-      margin-top: 136px;
-      padding-top: 46px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 47px;
-      color: #7b8798;
-      font-size: clamp(19px, 2.2vw, 27px);
-    }
-
-    .footer-link {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      white-space: nowrap;
-    }
-
-    .footer-divider {
-      height: 48px;
-      width: 2px;
-      background: #dfe4ea;
-    }
-
-    .footer svg {
-      width: 34px;
-      height: 34px;
-      flex: 0 0 auto;
-    }
-
-    @media (max-width: 700px) {
-      body {
-        padding: 0;
-      }
-
-      .page {
-        min-height: 100vh;
-        border-radius: 0;
-        padding: 85px 24px 45px;
-      }
-
-      .lock-wrap {
-        width: 145px;
-        height: 145px;
-        margin-bottom: 32px;
-      }
-
-      .lock-wrap svg {
-        width: 145px;
-        height: 145px;
-      }
-
-      .headline {
-        letter-spacing: -1.8px;
-      }
-
-      .subtitle {
-        margin-top: 30px;
-      }
-
-      .small-divider {
-        margin: 48px 0 50px;
-      }
-
-      .instruction {
-        font-size: 22px;
-      }
-
-      .access-button {
-        min-height: 82px;
-        margin-top: 40px;
-        gap: 20px;
-        font-size: 23px;
-      }
-
-      .shield {
-        width: 34px;
-        height: 40px;
-      }
-
-      .footer {
-        margin-top: 90px;
-        padding-top: 30px;
-        gap: 17px;
-        font-size: 16px;
-      }
-
-      .footer-link {
-        gap: 9px;
-      }
-
-      .footer-divider {
-        height: 32px;
-      }
-
-      .footer svg {
-        width: 24px;
-        height: 24px;
-      }
-    }
-
-    @media (max-width: 390px) {
-      .page {
-        padding-left: 18px;
-        padding-right: 18px;
-      }
-
-      .footer {
-        gap: 11px;
-      }
-
-      .footer-link {
-        gap: 6px;
-      }
-
-      .footer svg {
-        width: 21px;
-        height: 21px;
-      }
-    }
-  </style>
+:root{
+  --bg:#f4f7f1; --surface:#ffffff; --surface-2:#e5eee2;
+  --text:#183126; --muted:#607267; --primary:#2f7d57;
+  --primary-dark:#205a3d; --accent:#d58b45; --gold:#f1c77b;
+  --line:#d9e4d7; --shadow:0 22px 60px rgba(35,75,48,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"DM Sans",system-ui,sans-serif;
+  min-height:100vh;
+  color:var(--text);
+  background:linear-gradient(180deg,#f4f7f1 0%,#edf4ea 100%);
+  padding:18px;
+  -webkit-font-smoothing:antialiased;
+}
+.container{width:min(100%,900px);margin:auto}
+.header{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  margin-bottom:16px;padding:9px 2px 17px;
+  border-bottom:1px solid var(--line)
+}
+.logo{display:flex;align-items:center;gap:11px}
+.logo-mark{
+  width:43px;height:43px;border-radius:14px;
+  display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  color:#fff;font-family:"Plus Jakarta Sans",sans-serif;
+  font-size:19px;font-weight:800;
+  box-shadow:0 10px 24px rgba(143,41,66,.20)
+}
+.logo strong{font-size:15px;font-weight:800}
+.logo small{display:block;margin-top:3px;color:var(--muted);font-size:10px}
+.badge{
+  padding:7px 11px;border:1px solid rgba(34,211,238,.18);
+  border-radius:999px;background:rgba(34,211,238,.08);
+  color:var(--primary);font-size:9px;font-weight:800
+}
+.hero{
+  display:grid;grid-template-columns:1fr .8fr;gap:34px;align-items:center;
+  position:relative;overflow:hidden;padding:clamp(30px,6vw,55px);
+  border:1px solid var(--line);border-radius:34px;
+  background:linear-gradient(135deg,#ffffff 0%,#e8f2e5 100%);
+  box-shadow:var(--shadow)
+}
+.hero:before{
+  content:"";position:absolute;width:290px;height:290px;border-radius:50%;
+  right:-125px;top:-135px;
+  background:radial-gradient(circle,rgba(124,92,255,.28),transparent 68%)
+}
+.hero:after{
+  content:"";position:absolute;width:180px;height:180px;border-radius:50%;
+  left:-120px;bottom:-120px;background:rgba(34,211,238,.08)
+}
+.kicker{
+  position:relative;display:inline-flex;align-items:center;
+  padding:7px 11px;margin-bottom:17px;border-radius:999px;
+  background:rgba(47,125,87,.10);border:1px solid rgba(47,125,87,.22);
+  color:var(--primary);font-size:9px;font-weight:800;
+  letter-spacing:.1em;text-transform:uppercase
+}
+.hero h1{
+  position:relative;max-width:570px;margin-bottom:16px;
+  font-family:"Plus Jakarta Sans",sans-serif;
+  font-size:clamp(38px,6vw,59px);line-height:1.03;
+  letter-spacing:-.06em;font-weight:800
+}
+.hero h1 span{
+  background:linear-gradient(90deg,var(--primary),var(--accent));
+  -webkit-background-clip:text;background-clip:text;color:transparent
+}
+.hero p{
+  position:relative;max-width:570px;margin-bottom:25px;
+  color:var(--muted);font-size:14px;line-height:1.75
+}
+.cta{
+  position:relative;display:inline-flex;align-items:center;justify-content:center;
+  gap:11px;width:min(100%,350px);min-height:52px;padding:14px 20px;
+  border-radius:13px;background:var(--primary);
+  color:#fff;text-decoration:none;font-size:13px;font-weight:800;
+  box-shadow:0 13px 28px rgba(143,41,66,.20);
+  transition:.2s ease
+}
+.cta:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.cta span{font-size:17px}
+.plate{
+  min-height:285px;border-radius:23px;
+  display:grid;place-items:center;position:relative;
+  background:linear-gradient(145deg,#dcebd8,#f8fbf5);
+  border:1px solid rgba(255,255,255,.08)
+}
+.plate-circle{
+  width:205px;height:205px;border-radius:50%;overflow:hidden;
+  display:grid;grid-template-columns:1fr 1fr;
+  background:#234b36;border:7px solid rgba(255,255,255,.9);
+  box-shadow:0 22px 45px rgba(0,0,0,.32)
+}
+.food{display:flex;align-items:center;justify-content:center;font-size:42px}
+.food:nth-child(1){background:#6b9d72}.food:nth-child(2){background:#d9a35b}
+.food:nth-child(3){background:#b9785f}.food:nth-child(4){background:#8ba58a}
+.section-title{
+  font-family:"Plus Jakarta Sans",sans-serif;font-size:29px;
+  letter-spacing:-.04em;margin:32px 0 14px
+}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.card{
+  min-height:170px;padding:19px;border:1px solid var(--line);
+  border-radius:18px;background:#ffffff;
+  box-shadow:0 10px 28px rgba(0,0,0,.14);
+  transition:.2s ease
+}
+.card:hover{transform:translateY(-4px);border-color:rgba(143,41,66,.32);box-shadow:0 17px 34px rgba(0,0,0,.2)}
+.card:nth-child(2){background:linear-gradient(145deg,#f5fbf2,#e1efdf)}
+.card:nth-child(3){background:linear-gradient(145deg,#fff7ed,#f5e6d5)}
+.icon{
+  width:38px;height:38px;border-radius:11px;
+  display:grid;place-items:center;margin-bottom:17px;
+  background:rgba(47,125,87,.10);color:var(--primary);font-size:18px
+}
+.card h3{font-size:14px;margin-bottom:7px}
+.card p{font-size:11px;color:var(--muted);line-height:1.65}
+.tips{
+  margin-top:12px;padding:25px;border-radius:22px;
+  background:linear-gradient(135deg,#2f7d57,#1f5c40);
+  box-shadow:0 18px 40px rgba(67,71,180,.2)
+}
+.tips h2{font-family:"Plus Jakarta Sans",sans-serif;font-size:27px;letter-spacing:-.04em;margin-bottom:14px}
+.tips ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.tips li{
+  padding:11px 12px;border:1px solid rgba(255,255,255,.12);
+  border-radius:12px;background:rgba(0,0,0,.12);
+  font-size:12px;line-height:1.5
+}
+.tips li:before{content:"✓";font-weight:800;margin-right:8px;color:var(--gold)}
+.footer{text-align:center;color:#7f8ba0;font-size:10px;padding:22px 5px}
+@media(max-width:680px){
+  body{padding:10px}
+  .header{padding:7px 2px 12px}
+  .logo-mark{width:39px;height:39px;border-radius:12px}
+  .logo strong{font-size:14px}.logo small{font-size:9px}.badge{font-size:8px}
+  .hero{grid-template-columns:1fr;padding:27px 18px;border-radius:21px;gap:22px}
+  .hero h1{font-size:clamp(35px,11vw,48px)}
+  .hero p{font-size:13px;line-height:1.65}
+  .cta{width:100%}
+  .plate{min-height:220px}
+  .plate-circle{width:165px;height:165px}.food{font-size:33px}
+  .section-title{font-size:26px;margin-top:27px}
+  .grid{grid-template-columns:1fr;gap:9px}
+  .card{
+    min-height:auto;display:grid;grid-template-columns:40px 1fr;
+    column-gap:12px;align-items:center;padding:15px
+  }
+  .icon{grid-row:span 2;margin:0}
+  .tips{padding:20px;border-radius:18px}
+  .tips ul{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*:before,*:after{transition:none!important}
+}
+.book-cover{width:190px;height:225px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;background:var(--primary);color:#fff;border-radius:4px 10px 10px 4px;box-shadow:12px 15px 28px rgba(55,45,35,.18);transform:rotate(-3deg)}.book-cover span{font-size:9px;letter-spacing:.16em;font-weight:800}.book-cover strong{font-family:"Plus Jakarta Sans",sans-serif;font-size:25px;line-height:1.02;letter-spacing:-.04em}.book-cover i{width:45px;height:2px;background:var(--gold)}.book-cover small{font-size:9px;opacity:.78}@media(max-width:680px){.book-cover{width:150px;height:180px;padding:17px}.book-cover strong{font-size:21px}}</style>
 </head>
 <body>
-  <main class="page">
-    <div class="lock-wrap" aria-hidden="true">
-      <svg viewBox="0 0 204 204" role="img">
-        <circle cx="102" cy="102" r="91" fill="none" stroke="#f0f4f8" stroke-width="11"/>
-        <path d="M102 11 A91 91 0 0 1 193 102" fill="none" stroke="#12c58b"
-              stroke-width="11" stroke-linecap="round"/>
-        <g fill="#102f58">
-          <path d="M72 85V65c0-16.6 13.4-30 30-30s30 13.4 30 30v20h-13V65c0-9.4-7.6-17-17-17s-17 7.6-17 17v20H72Z"/>
-          <rect x="51" y="78" width="102" height="76" rx="15"/>
-        </g>
-        <circle cx="102" cy="109" r="13" fill="#fff"/>
-        <rect x="97" y="117" width="10" height="22" rx="5" fill="#fff"/>
-      </svg>
-    </div>
+<main class="container">
+<header class="header">
+  <div class="logo">
+    <div class="logo-mark">L</div>
+    <div><strong>Espaço de Descobertas</strong><small>Ideias para viver melhor</small></div>
+  </div>
+  <div class="badge">Inspire-se</div>
+</header>
 
-    <h1 class="headline">
-      Soluções
-      <span class="green">para você.</span>
-    </h1>
+<section class="hero">
+  <div>
+    <div class="kicker">IDEIAS, CULTURA E INSPIRAÇÃO</div>
+    <h1>Descubra novas <span>formas de transformar seu dia.</span></h1>
+    <p>Conteúdos, referências e caminhos práticos para ampliar seus horizontes com leveza.</p>
+    <a class="cta" href="#principios">Explorar conteúdos <span>↓</span></a>
+  </div>
+  <div class="plate" aria-hidden="true">
+  <div class="book-cover">
+    <span>DESCOBERTA</span><strong>Ideias<br>que<br>inspiram.</strong>
+    <i></i><small>Conhecimento e bem-estar</small>
+  </div>
+</div>
+  </div>
+</section>
 
-    <p class="subtitle">
-      Condições especiais para você<br />
-      reorganizar sua vida<br />
-      com mais tranquilidade.
-    </p>
+<h2 class="section-title" id="principios">Um espaço feito para você</h2>
+<section class="grid">
+  <article class="card"><div class="icon">🥗</div><h3>Conhecimento que aproxima</h3><p>Informações selecionadas para despertar curiosidade e ampliar sua visão de mundo.</p></article>
+  <article class="card"><div class="icon">💧</div><h3>Leitura que acolhe</h3><p>Textos leves e envolventes para fazer uma pausa e aproveitar o momento.</p></article>
+  <article class="card"><div class="icon">🌾</div><h3>Aprendizado contínuo</h3><p>Materiais para aprofundar assuntos, desenvolver habilidades e seguir aprendendo.</p></article>
+</section>
 
-    <div class="small-divider" aria-hidden="true"></div>
+<section class="tips">
+  <h2>Pequenas descobertas fazem diferença</h2>
+  <ul>
+    <li>Encontre conteúdos alinhados aos seus interesses.</li>
+    <li>Reserve alguns minutos para aprender algo novo.</li>
+    <li>Escolha experiências que tragam mais leveza.</li>
+    <li>Mantenha a curiosidade presente todos os dias.</li>
+  </ul>
+</section>
 
-    <p class="instruction">
-      Clique no botão abaixo para<br />
-      acessar a plataforma
-    </p>
-
-    <button class="access-button" type="button" onclick="acessarPlataforma()">
-      <svg class="shield" viewBox="0 0 49 57" aria-hidden="true">
-        <path d="M24.5 2.5 45 10v16.3c0 13.4-8.4 23.1-20.5 28.2C12.4 49.4 4 39.7 4 26.3V10l20.5-7.5Z"
-              fill="none" stroke="#08d59a" stroke-width="4"/>
-        <path d="m14.5 28.5 6.5 6.5 13.5-14" fill="none" stroke="#08d59a"
-              stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <span>ACESSAR AGORA</span>
-    </button>
-
-    <footer class="footer">
-      <div class="footer-link">
-        <svg viewBox="0 0 34 34" aria-hidden="true">
-          <path d="M17 3 29 7.5v9.6c0 7.7-4.8 12.3-12 14.9C9.8 29.4 5 24.8 5 17.1V7.5L17 3Z"
-                fill="none" stroke="currentColor" stroke-width="2.4"/>
-          <path d="m11.5 17 3.5 3.5 7.5-8" fill="none" stroke="currentColor"
-                stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span>Privacidade</span>
-      </div>
-
-      <div class="footer-divider" aria-hidden="true"></div>
-
-      <div class="footer-link">
-        <svg viewBox="0 0 34 34" aria-hidden="true">
-          <path d="M9 3.5h11l6 6v21H9z" fill="none" stroke="currentColor" stroke-width="2.4"
-                stroke-linejoin="round"/>
-          <path d="M20 3.5v6h6M13 15h9M13 20h9M13 25h6" fill="none"
-                stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
-        </svg>
-        <span>Termos de Uso</span>
-      </div>
-    </footer>
-  </main>
-
-  <script>
-    // ALTERE SOMENTE ESTA LINHA QUANDO QUISER TROCAR O LINK DO BOTÃO
-const LINK_ACAO = "https://dapper-axolotl-desenrola.netlify.app/";
-
-function acessarPlataforma() {
-      window.location.href = LINK_ACAO;
-    }
-  </script>
+<footer class="footer">Espaço de Descobertas. Conteúdo apresentado de forma simples, acolhedora e acessível.</footer>
+</main>
 </body>
 </html>
